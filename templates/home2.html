@@ -1,0 +1,107 @@
+<html>
+
+<head><title> Word Cloud Generator </title>
+<style>
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 24px;
+  padding: 10px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+th, td {
+  padding: 15px;
+}
+body{
+
+background-image: url({{ url_for('static', filename='back2.png') }})
+
+
+}
+</style>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+
+<body>
+<h1 style="background-color: #ff9900;color:white;font-size:40px;font-family:Montserrat;">Word cloud generator from existing file</H1>
+<center>
+<form action="{{ url_for('predict1')}}"method = "post" enctype="multipart/form-data">
+<table style="font-size:26px;font-family:Georgia;background-color:#66c2ff;border-radius:25px">
+<tr>
+<td>
+TYPE THE ADDRESS LOCATION OF FILE:</TD><TD>
+<input name="filename" style="width: 300px;height:34px;font-size:14px;" required="required" PLACEHOLDER="eg: c:\desktop\user\sample.txt"/>   </td></tr>   
+<br>
+<tr><td>
+CHOOSE BACK-GROUND COLOR:</td><TD>
+<select type="text" name="color" required="required" style="width: 175px;height:34px;font-size:22px;">
+ <option value="white">WHITE</option>
+  <option value="black">BLACK</option>
+  <option value="green">GREEN</option>
+  <option value="blue">BLUE</option>
+   <option value="red">RED</option>
+  <option value="yellow">YELLOW</option>
+  <option value="orange">ORANGE</option>
+ 
+</select></td></tr>
+ 
+<BR>
+ <tr><td > 
+ NO OF WORDS TO GENERATED:</TD><TD><input name="words" required="required"  style="width: 175px;height:34px;font-size:22px;" /></td></tr>
+ 
+ <BR>
+ <tr><td >
+SELECT THE FORMAT:</td><td>
+<input type="radio" name="options" id="option1" value="png"> png </input>
+<input type="radio" name="options" id="option2" value="jpeg"> jpeg </input>
+<input type="radio" name="options" id="option3" value="jpg"> jpg </input>
+</td></tr> <BR><br>
+<tr><td ></td><td>
+<button class="button" style="vertical-align:middle" type="submit"><span>Download</span></button></td></tr>
+
+</table>
+
+</center>
+</form>
+
+</center>
+</body>
+
+</html>
+
